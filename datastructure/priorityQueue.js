@@ -14,7 +14,7 @@ class Queue {
   }
 
   isEmpty() {
-    return this.items.length == 0
+    return this.items.length === 0
   }
 
   size() {
@@ -22,28 +22,24 @@ class Queue {
   }
 
   toString() {
-    let resultString = ""
-    for (let i = 0; i < this.items.length; i++) {
-      resultString += this.items[i] + " "
-    }
-    return resultString
+    return this.items.join(' ')
   }
 }
 
 class PriorityQueue extends Queue { //继承普通队列
   enQueue(element, priority) { //改写队列为优先级队列
     const queueItem = new QueueItem(element, priority)
-    let isAdd = true
+    let isAdd = false
 
     for (let i = 0; i < this.items.length; i++) {
       if (queueItem.priority > this.items[i].priority) {
         this.items.splice(i, 0, queueItem)
-        isAdd = false
+        isAdd = true
         break
       }
     }
 
-    if (isAdd) {
+    if (!isAdd) {
       this.items.push(queueItem)
     }
   }
