@@ -1,33 +1,27 @@
-function Stack() {
-  this.item = []
+class Stack {
+  items = []
 
-  Stack.prototype.push = function (element) {  //添加元素
-    this.item.push(element)
+  push(element) {
+    this.items.push(element)
   }
 
-  Stack.prototype.pop = function () { //取出元素返回 并删除
-    return this.item.pop()
+  pop() {
+    return this.items.pop()
   }
 
-  Stack.prototype.peek = function () { //查看元素
-    return this.item[this.item.length - 1]
+  peek() {
+    return this.items[0]
   }
 
-  Stack.prototype.isEmpty = function () { //判断栈是否为空
-    return this.item.length == 0
+  isEmpty() {
+    return this.items.length === 0
   }
 
-  Stack.prototype.size = function () { //查看栈的长度
-    return this.item.length
+  size() {
+    return this.items.length
   }
 
-  Stack.prototype.toString = function () { //输出栈内元素
-    let resultString = ""
-    for (let i = 0; i < this.item.length; i++) {
-      resultString += this.item[i] + " "
-    }
-    return resultString
+  toString() {
+    return this.items.join(' ')
   }
-
 }
-
