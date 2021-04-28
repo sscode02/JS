@@ -1,1 +1,2 @@
 # JS
+Something about javascript
